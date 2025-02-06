@@ -1,0 +1,58 @@
+$dark: #574964;
+$brown: #9F8383;
+$not_lite: #C8AAAA;
+$lite: #FFDAB3;
+
+@mixin default_box{
+    background-color: $brown;
+    color: $not_lite;
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px $dark;
+}
+
+
+body{
+    background-color: $not_lite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.welcome_window{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15%;
+
+    .box_db{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .chief{
+        @include default_box;
+    }
+    
+    .box{
+        @include default_box;
+        &:hover{
+            animation: chose_box 0.5s ease forwards;
+        }
+    }
+
+}
+
+@keyframes chose_box{
+    0%{
+        box-shadow: 2px 2px 5px $dark;
+        transform: scale(1);
+    }
+    100%{
+        box-shadow: 5px 5px 10px $dark;
+    }
+}

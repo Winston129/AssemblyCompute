@@ -1,0 +1,47 @@
+body {
+  color: #C8AAAA;
+  background-color: #C8AAAA;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.window_box {
+  background-color: #9F8383;
+  margin: 15%;
+  padding: 20px;
+  border-radius: 2px;
+  box-shadow: 2px 2px 5px #574964;
+}
+.window_box:hover {
+  animation: target_box 0.5s ease forwards;
+}
+
+@keyframes target_box {
+  0% {
+    box-shadow: 2px 2px 5px #574964;
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 5px 5px 10px #574964;
+  }
+}
+.chief {
+  color: #574964;
+  font-size: 35px;
+  padding-bottom: 20px;
+}
+
+.info {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.info .name_case {
+  color: #574964;
+  margin-right: 10px;
+}
+.info .items {
+  display: flex;
+  flex-direction: row;
+}
