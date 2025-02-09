@@ -12,6 +12,7 @@
     @endphp
     
     <div class="table">
+
         <div class="table_case table_case_name">
             <div class="case_name case_code">
                 CODE
@@ -20,31 +21,36 @@
                 NAME
             </div>
             <div class="case_name table_compatibility">
-                CONSUMPTION
+                <!-- CONSUMPTION -->EXPENSE
+            </div>
+            <div class="case_name table_compatibility">
+    
             </div>
         </div>
-
-    @foreach($material as $date_material)
-        @if($account == 5)
-            @break;
-        @endif
-        <a href="{{ route('material.show', $date_material->id) }}" class="block_link">
+    <div class="sub_table">
+        @foreach($material as $date_material)
             <div class="table_case">
-                <div class="case case_code">
-                    {{$date_material->code}}
-                </div>
-                <div class="case type">
-                    {{$date_material->name}}
-                </div>
-                <div class="case case_end">
-                    {{$date_material->consumption}}
-                </div>
+                <a href="" class="block_link">
+                    <div class="case case_code">
+                        {{$date_material->code}}
+                    </div>
+                    <div class="case type">
+                        {{$date_material->name}}
+                    </div>
+                    <div class="case case_end">
+                        {{$date_material->consumption}}
+                    </div>
+                </a>
+                <a href="{{ route('material.show', $date_material->id) }}" class="link_show">
+                    <div class="button_details">
+                        details
+                    </div>
+                </a>
             </div>
-        </a>
-        @php
-            $account++;
-        @endphp
-    @endforeach
+        @endforeach
+    </div>
+
+
     </div>
 </body>
 </html>

@@ -7,6 +7,10 @@ $lite: #FFDAB3;
     border: 2px solid #ff0000;
 }
 
+*{
+    @include border_test;
+}
+
 body{
     font-size: 20px;
     background-color: $not_lite;
@@ -25,24 +29,29 @@ body{
     margin-top: 10%;
     padding: 5px 20px 20px 20px;
     border: 2px solid $brown;
-
     .table_case_name{
         border-bottom: 2px solid $brown;
     }
-
     .case_name{
         width: 100%;
         // @include border_test;
     }
+    .details_name{
+        width: 10%;
+    }
 
-    .block_link{
-        display: flex;
-        flex-direction: row;
-        color: inherit;
-        width: 100%;
+    .sub_table{
         padding: 10px;
-        justify-content: space-between;
-        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        //scroll
+        max-height: 300px;  
+        overflow-y: auto;
+        overflow-x: hidden;
+        // Firefox
+        scrollbar-width: thin;
+        scrollbar-color: $brown $not_lite;
     }
 
     .table_case{
@@ -58,5 +67,28 @@ body{
             // @include border_test;
         }
 
+        .block_link{
+            display: flex;
+            flex-direction: row;
+            color: inherit;
+            width: 100%;
+            padding: 10px;
+            justify-content: space-between;
+            text-decoration: none;
+        }
+
+        .link_show{
+            display: flex;
+            justify-content: start;
+            color: $not_lite;
+            width: 10%;
+            text-decoration: none;
+            .button_details{
+                background-color: #574964;
+                padding: 5px 10px;
+                // margin-right: 15px;
+                border-radius: 5px;
+            }
+        }
     }
 }
