@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Assembly;
+use App\Models\Component;
 
 class AssemblyController extends Controller
 {
@@ -25,7 +26,8 @@ class AssemblyController extends Controller
      */
     public function create()
     {
-        //
+        $component=Component::all();
+        return view("assembly.create", compact("component"));
     }
 
     /**
@@ -36,7 +38,34 @@ class AssemblyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $validated = $request->validate([
+            "code" => "required|integer",
+            "type" => "required|string",
+            "form_factor" => "required|string",
+            "budget" => "required|string",
+            "power_consumption" => "required|integer",
+            "compatibility" => "required|string",
+            "design" => "required|string",
+            "component_1" => "nullable|integer",
+            "component_2" => "nullable|integer",
+            "component_3" => "nullable|integer",
+            "component_4" => "nullable|integer",
+            "component_5" => "nullable|integer"
+        ]);
+        
+        $assembly=Assembly::create($validated);
+
+        $assembly->component()->attach([
+            $request->component_1,
+            $request->component_2,
+            $request->component_3,
+            $request->component_4,
+            $request->component_5
+        ]);
+    
+        return redirect()->route("assembly.index")->with("success", "Assembly create!");
     }
 
     /**

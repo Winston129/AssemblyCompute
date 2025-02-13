@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AssemblyController;
 use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\AssemblyComponentController;
+// use App\Http\Controllers\ComponentMaterialController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +23,8 @@ Route::get("/", function () {
 
 // Assembly
 Route::get("/assembly", [AssemblyController::class, "index"])->name("assembly.index");
+Route::get("/assembly/create", [AssemblyController::class, "create"])->name("assembly.create");
+Route::post("/assembly/store", [AssemblyController::class, "store"])->name("assembly.store");
 Route::get("/assembly/{id}", [AssemblyController::class, "show"])->name("assembly.show");
 
 // Component

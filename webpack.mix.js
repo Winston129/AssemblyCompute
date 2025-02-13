@@ -7,13 +7,13 @@ mix.sass("resources/scss/welcome.scss", "public/css")
 
 let arr_name_file=["index", "show"]
 
-// Aassembly
+// assembly
 arr_name_file.map((name_file)=>{
     mix.sass(`resources/scss/assembly/${name_file}.scss`, "public/css/assembly")
         .version();
 })
 
-// Component
+// component
 arr_name_file.map((name_file)=>{
     mix.sass(`resources/scss/component/${name_file}.scss`, "public/css/component")
         .version();
@@ -24,3 +24,7 @@ arr_name_file.map((name_file)=>{
     mix.sass(`resources/scss/material/${name_file}.scss`, "public/css/material")
         .version();
 })
+
+/*---------------------------------------------------------------------*/
+mix.sass("resources/scss/assembly/create.scss", "public/css/assembly")
+    .version();

@@ -7,50 +7,71 @@
     <title>Assembly</title>
 </head>
 <body>
-    
-    <div class="table">
 
-        <div class="table_case table_case_name">
-            <div class="case_name case_code">
-                CODE
+<div class="table">
+    <!-- Name Table -->
+    <div class="name_case_table">
+        <div class="case case_start">
+            CODE
+        </div>
+        <div class="case case_start">
+            TYPE
+        </div>
+        <div class="case case_start">
+            COMPATIBILITY
+        </div>
+        <div class="case case_start">
+            DESIGN
+        </div>
+        <div class="case">
+            DELETE
+        </div>
+        <div class="case">
+            UPDATA
+        </div>
+        <div class="case">
+            INFO
+        </div>
+    </div>
+    <!-- Scroll Table -->
+    <div class="scroll_table">
+        @foreach($assembly as $date_assembly)
+        <div class="row">
+            <div class="case case_start">
+                {{$date_assembly->code}}
             </div>
-            <div class="case_name type">
-                TYPE
+            <div class="case case_start">
+                {{$date_assembly->type}}
             </div>
-            <div class="case_name table_compatibility">
-                COMPATIBILITY
+            <div class="case case_start">
+                {{$date_assembly->compatibility}}
             </div>
-            <div class="case_name case_design">
-                DESIGN
+            <div class="case case_start">
+                {{$date_assembly->design}}
+            </div>
+            <div class="case">
+                <button>
+                    delete
+                </button>
+            </div>
+            <div class="case">
+                <button>
+                    updata
+                </button>
+            </div>
+            <div class="case">
+                <button onclick="window.location.href='{{ route('assembly.show', $date_assembly->id) }}'">
+                    information
+                </button>
             </div>
         </div>
-
-    <div class="sub_table">
-        @foreach($assembly as $date_assembly)
-                <div class="table_case">
-                    <a href="" class="block_link">
-                        <div class="case case_code">
-                            {{$date_assembly->code}}
-                        </div>
-                        <div class="case type">
-                            {{$date_assembly->type}}
-                        </div>
-                        <div class="case table_compatibility">
-                            {{$date_assembly->compatibility}}
-                        </div>
-                        <div class="case case_design">
-                            {{$date_assembly->design}}
-                        </div>
-                    </a>
-                    <a href="{{ route('assembly.show', $date_assembly->id) }}" class="link_show">
-                        <div class="button_details">
-                            details
-                        </div>
-                    </a>
-                </div>
         @endforeach
     </div>
 
-    </div>
+    <button class="create" onclick="window.location.href='{{ route('assembly.create') }}'">
+        create
+    </button>
+</div>
+
 </body>
 </html>

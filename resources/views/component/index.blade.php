@@ -8,52 +8,70 @@
 </head>
 <body>
     
-    <div class="table">
 
-        <div class="table_case table_case_name">
-            <div class="case_name case_code">
-                CODE
+<div class="table">
+    <!-- Name Table -->
+    <div class="name_case_table">
+        <div class="case case_start">
+            CODE
+        </div>
+        <div class="case case_start">
+            MODEL
+        </div>
+        <div class="case case_start case_type case_center">
+            TYPE
+        </div>
+        <div class="case case_start">
+            NAME
+        </div>
+        <div class="case">
+            DELETE
+        </div>
+        <div class="case">
+            UPDATA
+        </div>
+        <div class="case">
+            INFO
+        </div>
+    </div>
+    <!-- Scroll Table -->
+    <div class="scroll_table">
+        @foreach($component as $data_component)
+        <div class="row">
+            <div class="case case_start">
+                {{$data_component->code}}
             </div>
-            <div class="case_name type">
-                MODEL
+            <div class="case case_start">
+                {{$data_component->model}}
             </div>
-            <div class="case_name case_design">
-                TYPE
+            <div class="case case_start case_center">
+                {{$data_component->type}}
             </div>
-            <div class="case_name table_compatibility">
-                NAME
+            <div class="case case_start">
+                {{$data_component->name}}
             </div>
-            <div class="details_name table_compatibility">
-                
+            <div class="case">
+                <button>
+                    delete
+                </button>
+            </div>
+            <div class="case">
+                <button>
+                    updata
+                </button>
+            </div>
+            <div class="case">
+                <button onclick="window.location.href='{{ route('component.show', $data_component->id) }}'">
+                    information
+                </button>
             </div>
         </div>
-
-    <div class="sub_table">
-        @foreach($component as $data_component)
-                <div class="table_case">
-                    <a href="" class="block_link">
-                        <div class="case case_code">
-                            {{$data_component->code}}
-                        </div>
-                        <div class="case">
-                            {{$data_component->model}}
-                        </div>
-                        <div class="case">
-                            {{$data_component->type}}
-                        </div>
-                        <div class="case">
-                            {{$data_component->name}}
-                        </div>
-                    </a>
-                    <a href="{{ route('component.show', $data_component->id) }}" class="link_show">
-                        <div class="button_details">
-                            details
-                        </div>
-                    </a>
-                </div>
         @endforeach
     </div>
 
-    </div>
+    <button class="create">
+        create
+    </button>
+</div>
 </body>
 </html>

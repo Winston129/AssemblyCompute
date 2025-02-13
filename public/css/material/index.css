@@ -1,70 +1,94 @@
 body {
-  font-size: 20px;
   background-color: #C8AAAA;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 10%;
 }
 
 .table {
-  color: #574964;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 40%;
-  margin-top: 10%;
-  padding: 5px 20px 20px 20px;
+  font-size: 20px;
+  color: #574964;
+  width: 70%;
   border: 2px solid #9F8383;
+  /*---------- Name ----------*/
+  /*---------- Create ----------*/
+  /*---------- Scroll ----------*/
 }
-.table .table_case_name {
+.table .name_case_table {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
   border-bottom: 2px solid #9F8383;
 }
-.table .table_case_name .case_name {
+.table .name_case_table .case {
+  font-size: 20px;
+  text-align: center;
   width: 100%;
 }
-.table .sub_table {
-  padding: 10px;
+.table .name_case_table .case_start {
+  text-align: start;
+}
+.table .name_case_table .case_center {
+  text-align: center;
+}
+.table .create {
+  background-color: #C8AAAA;
+  color: #574964;
+  font-size: 16px;
+  margin: 5px;
+  padding: 5px;
+  border: 2px solid #9F8383;
+  border-radius: 2px;
+}
+.table .create:hover {
+  animation: chose_box 0.5s ease forwards;
+}
+@keyframes chose_box {
+  0% {
+    box-shadow: 0px 0px 0px #574964;
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0px 0px 5px #574964;
+  }
+}
+.table .scroll_table {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-height: 300px;
+  padding: 20px;
+  max-height: 310px;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: #9F8383 #C8AAAA;
 }
-.table .table_case {
-  padding: 10px;
+.table .scroll_table .row {
   display: flex;
   flex-direction: row;
-  width: 100%;
   justify-content: space-between;
+  padding: 10px 0px;
 }
-.table .table_case .case {
-  text-align: start;
+.table .scroll_table .row .case {
+  font-size: 20px;
   width: 100%;
+  text-align: center;
 }
-.table .table_case .block_link {
-  display: flex;
-  flex-direction: row;
-  color: inherit;
-  width: 100%;
-  padding: 10px;
-  justify-content: space-between;
-  text-decoration: none;
-}
-.table .table_case .link_show {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.table .scroll_table .row .case button {
+  font-size: 20px;
   color: #C8AAAA;
-  width: 30%;
-  text-decoration: none;
+  padding: 5px;
+  background-color: #9F8383;
+  border-radius: 2px;
+  border: 0px;
 }
-.table .table_case .link_show .button_details {
-  display: flex;
-  background-color: #574964;
-  padding: 5px 10px;
-  border-radius: 5px;
+.table .scroll_table .row .case_start {
+  text-align: start;
+}
+.table .scroll_table .row .case_center {
+  text-align: center;
 }
