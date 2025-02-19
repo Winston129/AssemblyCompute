@@ -38,8 +38,6 @@ class AssemblyController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $validated = $request->validate([
             "code" => "required|integer",
             "type" => "required|string",

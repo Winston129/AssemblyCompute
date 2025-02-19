@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Component;
+use App\Models\Material;
 
 class ComponentController extends Controller
 {
@@ -25,7 +26,8 @@ class ComponentController extends Controller
      */
     public function create()
     {
-        //
+        $material=Material::all();
+        return view("component.create", compact("material"));
     }
 
     /**
@@ -36,7 +38,29 @@ class ComponentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            "code" => "required|integer",
+            "model" => "required|string",
+            "name" => "required|string",
+            "quantity" => "required|integer",
+            "unit" => "required|string",
+            "type" => "required|string",
+            "category" => "required|string",
+            "attribute" => "required|string",
+            "material_1" => "nullable|integer",
+            "material_2" => "nullable|integer",
+            "material_3" => "nullable|integer"
+        ]);
+        
+        $component=component::create($validated);
+
+        $component->material()->attach([
+            $request->material_1,
+            $request->material_2,
+            $request->material_3
+        ]);
+    
+        return redirect()->route("component.index")->with("success", "Component create!");
     }
 
     /**

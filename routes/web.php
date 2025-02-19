@@ -29,8 +29,12 @@ Route::get("/assembly/{id}", [AssemblyController::class, "show"])->name("assembl
 
 // Component
 Route::get("/component", [ComponentController::class, "index"])->name("component.index");
+Route::get("/component/create", [ComponentController::class, "create"])->name("component.create");
+Route::post("/component/store", [ComponentController::class, "store"])->name("component.store");
 Route::get("/component/{id}", [ComponentController::class, "show"])->name("component.show");
 
 // Material
 Route::get("/material", [MaterialController::class, "index"])->name("material.index");
+Route::get("/material/create", [MaterialController::class, "create"])->name("material.create");
+Route::post("/material/store", [MaterialController::class, "store"])->name("material.store");
 Route::get("/material/{id}", [MaterialController::class, "show"])->name("material.show");

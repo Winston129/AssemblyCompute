@@ -69,7 +69,7 @@
         @endforeach
     </div>
 
-    <button class="create">
+    <button class="create" onclick="window.location.href='{{ route('material.create') }}'">
         create
     </button>
 </div>

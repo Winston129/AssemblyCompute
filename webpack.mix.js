@@ -5,7 +5,7 @@ mix.sass("resources/scss/welcome.scss", "public/css")
     .version();
 
 
-let arr_name_file=["index", "show"]
+let arr_name_file=["index", "show", "create"]
 
 // assembly
 arr_name_file.map((name_file)=>{
@@ -26,5 +26,5 @@ arr_name_file.map((name_file)=>{
 })
 
 /*---------------------------------------------------------------------*/
-mix.sass("resources/scss/assembly/create.scss", "public/css/assembly")
-    .version();
+// mix.sass("resources/scss/assembly/create.scss", "public/css/assembly")
+//     .version();

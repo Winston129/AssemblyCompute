@@ -14,7 +14,7 @@
                 <div class="text">Code</div>
             </div>
             <div class="element_two">
-                <input name="code" type="number">
+                <input name="code" type="number" placeholder="000">
             </div>
         </div>
         
@@ -23,7 +23,7 @@
                 <div class="text">Type</div>
             </div>
             <div class="element_two">
-                <input name="type" type="text">
+                <input name="type" type="text" placeholder="Игровая">
             </div>
         </div>
 
@@ -32,7 +32,7 @@
                 <div class="text">Form Factor</div>
             </div>
             <div class="element_two">
-                <input name="form_factor" type="text">
+                <input name="form_factor" type="text" placeholder="MicroATX">
             </div>
         </div>
 
@@ -41,7 +41,7 @@
                 <div class="text">Budget</div>
             </div>
             <div class="element_two">
-                <input name="budget" type="text">
+                <input name="budget" type="text" placeholder="Средний">
             </div>
         </div>
 
@@ -50,7 +50,7 @@
                 <div class="text">Power Consumption</div>
             </div>
             <div class="element_two">
-                <input name="power_consumption" type="number">
+                <input name="power_consumption" type="number" placeholder="500">
             </div>
         </div>
 
@@ -59,7 +59,7 @@
                 <div class="text">Compatibility</div>
             </div>
             <div class="element_two">
-                <input name="compatibility" type="text">
+                <input name="compatibility" type="text" placeholder="Совместим с AMD">
             </div>
         </div>
 
@@ -68,7 +68,7 @@
                 <div class="text">Design</div>
             </div>
             <div class="element_two">
-                <input name="design" type="text">
+                <input name="design" type="text" placeholder="Белый минимализм">
             </div>
         </div>
 

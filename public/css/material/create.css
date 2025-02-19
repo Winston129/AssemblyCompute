@@ -1,0 +1,57 @@
+@charset "UTF-8";
+body {
+  background-color: #C8AAAA;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  color: #574964;
+  width: 20%;
+  border-radius: 2px;
+  border: 2px solid #9F8383;
+}
+form .box {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 10px;
+}
+form .box input {
+  background-color: #C8AAAA;
+  font-size: 15px;
+  width: 100%;
+  border: 0px;
+  border-bottom: 2px solid #9F8383;
+}
+form .box input:focus {
+  outline: none;
+  color: #574964;
+}
+form .box input[type=number] {
+  -moz-appearance: textfield; /* Для Firefox */
+}
+form .box input[type=number]::-webkit-inner-spin-button,
+form .box input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* Для Chrome, Safari, Edge, Opera */
+  margin: 0; /* Убираем отступы */
+}
+form .box .element_one {
+  margin-right: 10px;
+}
+form .box .element_two {
+  display: flex;
+  width: 100%;
+}
+form button {
+  background-color: #9F8383;
+  margin: 10px 5px 5px 5px;
+  padding: 5px 10px;
+  border-radius: 2px;
+  border: 0;
+}
