@@ -21,29 +21,16 @@ Route::get("/", function () {
     return view("index");
 });
 
-// Assembly
-Route::get("/assembly", [AssemblyController::class, "index"])->name("assembly.index");
-Route::get("/assembly/create", [AssemblyController::class, "create"])->name("assembly.create");
-Route::post("/assembly/store", [AssemblyController::class, "store"])->name("assembly.store");
-Route::get("/assembly/{id}", [AssemblyController::class, "show"])->name("assembly.show");
-Route::delete("/assembly/delete/{id}", [AssemblyController::class, "destroy"])->name("assembly.destroy");
-Route::get("/assembly/edit/{id}", [AssemblyController::class, "edit"])->name("assembly.edit");
-Route::put("/assembly/updata/{id}", [AssemblyController::class, "update"])->name("assembly.update");
 
-// Component
-Route::get("/component", [ComponentController::class, "index"])->name("component.index");
-Route::get("/component/create", [ComponentController::class, "create"])->name("component.create");
-Route::post("/component/store", [ComponentController::class, "store"])->name("component.store");
-Route::get("/component/{id}", [ComponentController::class, "show"])->name("component.show");
-Route::delete("/component/delete/{id}", [ComponentController::class, "destroy"])->name("component.destroy");
-Route::get("/component/edit/{id}", [ComponentController::class, "edit"])->name("component.edit");
-Route::put("/component/updata/{id}", [ComponentController::class, "update"])->name("component.update");
+$name_table=["assembly", "component", "material"];
+$controllers=[AssemblyController::class, ComponentController::class, MaterialController::class];
 
-// Material
-Route::get("/material", [MaterialController::class, "index"])->name("material.index");
-Route::get("/material/create", [MaterialController::class, "create"])->name("material.create");
-Route::post("/material/store", [MaterialController::class, "store"])->name("material.store");
-Route::get("/material/{id}", [MaterialController::class, "show"])->name("material.show");
-Route::delete("/material/delete/{id}", [MaterialController::class, "destroy"])->name("material.destroy");
-Route::get("/material/edit/{id}", [MaterialController::class, "edit"])->name("material.edit");
-Route::put("/material/updata/{id}", [MaterialController::class, "update"])->name("material.update");
+for($i=0; $i<3; $i++){ 
+    Route::get("/{$name_table[$i]}", [$controllers[$i], "index"])->name("{$name_table[$i]}.index");
+    Route::get("/{$name_table[$i]}/create", [$controllers[$i], "create"])->name("{$name_table[$i]}.create");
+    Route::post("/{$name_table[$i]}/store", [$controllers[$i], "store"])->name("{$name_table[$i]}.store");
+    Route::get("/{$name_table[$i]}/{id}", [$controllers[$i], "show"])->name("{$name_table[$i]}.show");
+    Route::delete("/{$name_table[$i]}/delete/{id}", [$controllers[$i], "destroy"])->name("{$name_table[$i]}.destroy");
+    Route::get("/{$name_table[$i]}/edit/{id}", [$controllers[$i], "edit"])->name("{$name_table[$i]}.edit");
+    Route::put("/{$name_table[$i]}/update/{id}", [$controllers[$i], "update"])->name("{$name_table[$i]}.update");
+}
