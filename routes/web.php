@@ -26,15 +26,18 @@ Route::get("/assembly", [AssemblyController::class, "index"])->name("assembly.in
 Route::get("/assembly/create", [AssemblyController::class, "create"])->name("assembly.create");
 Route::post("/assembly/store", [AssemblyController::class, "store"])->name("assembly.store");
 Route::get("/assembly/{id}", [AssemblyController::class, "show"])->name("assembly.show");
+Route::delete("/assembly/delete/{id}", [AssemblyController::class, "destroy"])->name("assembly.destroy");
 
 // Component
 Route::get("/component", [ComponentController::class, "index"])->name("component.index");
 Route::get("/component/create", [ComponentController::class, "create"])->name("component.create");
 Route::post("/component/store", [ComponentController::class, "store"])->name("component.store");
 Route::get("/component/{id}", [ComponentController::class, "show"])->name("component.show");
+Route::post("/component/delete/{id}", [ComponentController::class, "destroy"])->name("component.destroy");
 
 // Material
 Route::get("/material", [MaterialController::class, "index"])->name("material.index");
 Route::get("/material/create", [MaterialController::class, "create"])->name("material.create");
 Route::post("/material/store", [MaterialController::class, "store"])->name("material.store");
 Route::get("/material/{id}", [MaterialController::class, "show"])->name("material.show");
+Route::delete("/material/delete/{id}", [MaterialController::class, "destroy"])->name("material.destroy");

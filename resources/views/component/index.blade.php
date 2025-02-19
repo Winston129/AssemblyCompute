@@ -51,9 +51,13 @@
                 {{$data_component->name}}
             </div>
             <div class="case">
-                <button>
-                    delete
-                </button>
+                <form action="{{ route('component.destroy', $data_component->id) }}" method="POST" style="display: inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">
+                        delete
+                    </button>
+                </form>
             </div>
             <div class="case">
                 <button>

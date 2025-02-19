@@ -50,9 +50,11 @@
                 {{$date_assembly->design}}
             </div>
             <div class="case">
-                <button>
-                    delete
-                </button>
+            <form action="{{ route('assembly.destroy', $date_assembly->id) }}" method="POST" style="display: inline;">
+                @csrf
+                @method('DELETE')
+                <button type="submit">delete</button>
+            </form>
             </div>
             <div class="case">
                 <button>

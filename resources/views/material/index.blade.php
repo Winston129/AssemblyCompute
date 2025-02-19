@@ -36,24 +36,28 @@
     </div>
     <!-- Scroll Table -->
     <div class="scroll_table">
-        @foreach($material as $date_material)
+        @foreach($material as $data_material)
         <div class="row">
             <div class="case case_start">
-                {{$date_material->code}}
+                {{$data_material->code}}
             </div>
             <div class="case case_start">
-                {{$date_material->name}}
+                {{$data_material->name}}
             </div>
             <div class="case case_start">
-                {{$date_material->consumption}}
+                {{$data_material->consumption}}
             </div>
             <div class="case case_start">
-                {{$date_material->unit}}
+                {{$data_material->unit}}
             </div>
             <div class="case">
-                <button>
-                    delete
-                </button>
+                <form action="{{ route('material.destroy', $data_material->id) }}" method="POST" style="display: inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">
+                        delete
+                    </button>
+                </form>
             </div>
             <div class="case">
                 <button>
@@ -61,7 +65,7 @@
                 </button>
             </div>
             <div class="case">
-                <button onclick="window.location.href='{{ route('material.show', $date_material->id) }}'">
+                <button onclick="window.location.href='{{ route('material.show', $data_material->id) }}'">
                     information
                 </button>
             </div>
@@ -100,20 +104,20 @@
                 </div>
             </div>
             <div class="sub_table">
-                @foreach($material as $date_material)
+                @foreach($material as $data_material)
                 <div class="table_case">
                     <a href="" class="block_link">
                         <div class="case case_code">
-                            {{$date_material->code}}
+                            {{$data_material->code}}
                         </div>
                         <div class="case type">
-                            {{$date_material->name}}
+                            {{$data_material->name}}
                         </div>
                         <div class="case case_end">
-                            {{$date_material->consumption}}
+                            {{$data_material->consumption}}
                         </div>
                     </a>
-                    <a href="{{ route('material.show', $date_material->id) }}" class="link_show">
+                    <a href="{{ route('material.show', $data_material->id) }}" class="link_show">
                         <div class="button_details">
                             details
                         </div>

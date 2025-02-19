@@ -109,6 +109,9 @@ class AssemblyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $assembly=Assembly::find($id);
+        $assembly->delete();
+
+        return redirect()->route("assembly.index")->with("success", "Assembly delete!");
     }
 }

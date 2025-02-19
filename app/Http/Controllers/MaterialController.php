@@ -36,7 +36,18 @@ class MaterialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            "code" => "required|integer",
+            "name" => "required|string",
+            "consumption" => "required|numeric",
+            "unit" => "required|string",
+            "waste" => "required|numeric",
+            "waste_unit" => "required|string"
+        ]);
+        
+        $material=Material::create($validated);
+    
+        return redirect()->route("material.index")->with("success", "Material create!");
     }
 
     /**
@@ -82,6 +93,9 @@ class MaterialController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $material=Material::find($id);
+        $material->delete();
+
+        return redirect()->route("material.index")->with("success", "Material delete (");
     }
 }

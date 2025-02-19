@@ -52,7 +52,7 @@ class ComponentController extends Controller
             "material_3" => "nullable|integer"
         ]);
         
-        $component=component::create($validated);
+        $component=Component::create($validated);
 
         $component->material()->attach([
             $request->material_1,
@@ -106,6 +106,9 @@ class ComponentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $component=Component::find($id);
+        $component->delete();
+
+        return redirect()->route("component.index")->with("success", "Component delete (");
     }
 }

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ mix('css/component/create.css') }}">
-    <title>create component</title>
+    <link rel="stylesheet" href="{{ mix('css/material/create.css') }}">
+    <title>create material</title>
 </head>
 <body>
-    <form action="{{ route('component.store') }}" method="POST">
+    <form action="{{ route('material.store') }}" method="POST">
         @csrf
         <div class="box">
             <div class="element_one">
@@ -32,7 +32,7 @@
                 <div class="text">Consumption</div>
             </div>
             <div class="element_two">
-                <input name="consumption" type="number" step=0.1 placeholder="0.0">
+                <input name="consumption" type="number" step=0.001 placeholder="0.000">
             </div>
         </div>
 
@@ -50,7 +50,7 @@
                 <div class="text">Waste</div>
             </div>
             <div class="element_two">
-                <input name="waste" type="number" step=0.1 placeholder="0.0">
+                <input name="waste" type="number" step=0.001 placeholder="0.000">
             </div>
         </div>
 
