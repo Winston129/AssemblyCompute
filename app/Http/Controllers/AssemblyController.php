@@ -86,7 +86,9 @@ class AssemblyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $assembly=Assembly::findOrFail($id);
+        $component=Component::all();
+        return view("assembly.edit", compact("assembly", "component"));
     }
 
     /**
@@ -98,7 +100,19 @@ class AssemblyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $assembly = Assembly::findOrFail($id);
+
+        $assembly->update([
+            'code' => $request->input('code'),
+            'type' => $request->input('type'),
+            'form_factor' => $request->input('form_factor'),
+            'budget' => $request->input('budget'),
+            'power_consumption' => $request->input('power_consumption'),
+            'compatibility' => $request->input('compatibility'),
+            'design' => $request->input('design'),
+        ]);
+    
+        return redirect()->route("assembly.index")->with("success", "Assembly updated!");
     }
 
     /**

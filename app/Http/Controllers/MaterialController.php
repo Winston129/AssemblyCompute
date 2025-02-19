@@ -70,7 +70,8 @@ class MaterialController extends Controller
      */
     public function edit($id)
     {
-        //
+        $material = Material::findOrFail($id);
+        return view("material.edit", compact("material"));
     }
 
     /**
@@ -82,7 +83,10 @@ class MaterialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $material = Material::findOrFail($id);
+        $material->update($request->all());
+    
+        return redirect()->route("material.index")->with("success", "Material updated!");
     }
 
     /**

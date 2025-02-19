@@ -28,7 +28,7 @@
             DELETE
         </div>
         <div class="case">
-            UPDATA
+            EDIT
         </div>
         <div class="case">
             INFO
@@ -60,8 +60,8 @@
                 </form>
             </div>
             <div class="case">
-                <button>
-                    updata
+                <button onclick="window.location.href='{{ route('material.edit', $data_material->id) }}'">
+                    edit
                 </button>
             </div>
             <div class="case">

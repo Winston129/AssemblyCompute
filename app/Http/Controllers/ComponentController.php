@@ -83,7 +83,9 @@ class ComponentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $component = Component::findOrFail($id);
+        $material = Material::all();
+        return view("component.edit", compact("component", "material"));
     }
 
     /**
@@ -95,7 +97,10 @@ class ComponentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $component = Component::findOrFail($id);
+        $component->update($request->all());
+    
+        return redirect()->route("component.index")->with("success", "Component updated!");
     }
 
     /**

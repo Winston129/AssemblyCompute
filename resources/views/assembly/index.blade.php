@@ -27,7 +27,7 @@
             DELETE
         </div>
         <div class="case">
-            UPDATA
+            EDIT
         </div>
         <div class="case">
             INFO
@@ -57,8 +57,8 @@
             </form>
             </div>
             <div class="case">
-                <button>
-                    updata
+                <button onclick="window.location.href='{{ route('assembly.edit', $date_assembly->id) }}'">
+                    edit
                 </button>
             </div>
             <div class="case">
