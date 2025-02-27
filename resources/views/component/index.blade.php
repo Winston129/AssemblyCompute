@@ -73,6 +73,9 @@
         @endforeach
     </div>
 
+    <button class="create" onclick="window.location.href='{{ route('component.find') }}'">
+        find
+    </button>
     <button class="create" onclick="window.location.href='{{ route('component.create') }}'">
         create
     </button>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Assembly;
 use App\Models\Component;
 use App\Models\Material;
 
@@ -116,4 +117,28 @@ class ComponentController extends Controller
 
         return redirect()->route("component.index")->with("success", "Component delete (");
     }
+
+    public function find(Request $request)
+    {    
+        $value = $request->input("value");
+        $assembly=[];
+        $component=null;
+        $component_field=["code", "model", "name", "quantity", "unit", "type", "category", "attribute"];
+
+        foreach($component_field as $field){
+            $component=Component::where($field, $value)->first();
+            if($component){
+                $assembly = $component->assembly;
+                break;
+            }
+        }
+
+        // if(empty($component)){
+        // if(!$component){
+        //     abort(404, "не ну я х.. знает");
+        // }
+
+        return view("component.find", compact("assembly"));
+    }
+
 }

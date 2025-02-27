@@ -25,6 +25,10 @@ Route::get("/", function () {
 $name_table=["assembly", "component", "material"];
 $controllers=[AssemblyController::class, ComponentController::class, MaterialController::class];
 
+
+Route::get("/component/find", [ComponentController::class, "find"])->name("component.find");
+Route::get("/material/find", [MaterialController::class, "find"])->name("material.find");
+
 for($i=0; $i<3; $i++){ 
     Route::get("/{$name_table[$i]}", [$controllers[$i], "index"])->name("{$name_table[$i]}.index");
     Route::get("/{$name_table[$i]}/create", [$controllers[$i], "create"])->name("{$name_table[$i]}.create");

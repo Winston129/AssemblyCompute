@@ -25,6 +25,8 @@ arr_name_file.map((name_file)=>{
         .version();
 })
 
+mix.sass(`resources/scss/component/find.scss`, "public/css/component")
+    .version();
 /*---------------------------------------------------------------------*/
 // mix.sass("resources/scss/assembly/create.scss", "public/css/assembly")
 //     .version();

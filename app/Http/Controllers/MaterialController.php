@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Component;
 use App\Models\Material;
 
 class MaterialController extends Controller
@@ -102,4 +103,23 @@ class MaterialController extends Controller
 
         return redirect()->route("material.index")->with("success", "Material delete (");
     }
+    
+    public function find(Request $request)
+    {    
+        $value = $request->input("value");
+        $component=[];
+        $material=null;
+        $material_field=["code", "model", "name", "quantity", "unit", "type", "category", "attribute"];
+
+        foreach($material_field as $field){
+            $material=Material::where($field, $value)->first();
+            if($material){
+                $component = $material->component;
+                break;
+            }
+        }
+
+        return view("material.find", compact("component"));
+    }
+
 }

@@ -73,61 +73,13 @@
         @endforeach
     </div>
 
+    
+    <button class="create" onclick="window.location.href='{{ route('material.find') }}'">
+        find
+    </button>
     <button class="create" onclick="window.location.href='{{ route('material.create') }}'">
         create
     </button>
 </div>
-
-<!------------------------------------------------------------>
-<!------------------------------------------------------------>
-<!------------------------------------------------------------>
-<!------------------------------------------------------------>
-<!------------------------------------------------------------>
-<!------------------------------------------------------------>
-<!------------------------------------------------------------>
-<!------------------------------------------------------------>
-{{-- 
-    <div class="table">
-        
-        <div class="table_case table_case_name">
-            <div class="case_name case_code">
-                CODE
-            </div>
-            <div class="case_name type">
-                NAME
-            </div>
-            <div class="case_name table_compatibility">
-                <!-- CONSUMPTION -->EXPENSE
-            </div>
-            <div class="case_name table_compatibility">
-                
-                </div>
-            </div>
-            <div class="sub_table">
-                @foreach($material as $data_material)
-                <div class="table_case">
-                    <a href="" class="block_link">
-                        <div class="case case_code">
-                            {{$data_material->code}}
-                        </div>
-                        <div class="case type">
-                            {{$data_material->name}}
-                        </div>
-                        <div class="case case_end">
-                            {{$data_material->consumption}}
-                        </div>
-                    </a>
-                    <a href="{{ route('material.show', $data_material->id) }}" class="link_show">
-                        <div class="button_details">
-                            details
-                        </div>
-                    </a>
-                </div>
-                @endforeach
-            </div>
-            
-            
-        </div>
---}}    
     </body>
 </html>
